@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Promphuek Blog</title>
+  <style>
+    :root {
+      --main-bg: #FFF9F4;
+      --card-bg: #FFFFFF;
+      --pastel-pink: #FAD4D4;
+      --pastel-blue: #AEE1F9;
+      --pastel-mint: #CFFFE5;
+      --text-color: #333;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Mitr', sans-serif;
+      background: linear-gradient(180deg, #fffaf6, #fef3ee);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      animation: floatIn 1s ease-in-out both;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 768px;
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      animation: fadeInUp 1s ease both;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .section h2 {
+      border-left: 6px solid var(--pastel-blue);
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      text-shadow: 1px 1px 3px rgba(173, 216, 230, 0.5);
+    }
+
+    .card {
+      background: var(--pastel-pink);
+      padding: 1rem;
+      border-radius: 0.75rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .about {
+      background: var(--pastel-mint);
+    }
+
+    .contact {
+      background: #fce8ff;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: var(--pastel-blue);
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    button:hover {
+      background: #90d8f5;
+      transform: scale(1.05);
+    }
+
+    #topBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #333;
+      color: white;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      display: none;
+    }
+
+    .tiktok-btn {
+      background: linear-gradient(135deg, #ff0050, #00f2ea);
+      color: white;
+      font-weight: bold;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 2rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+      font-size: 1.1rem;
+      margin: 2rem auto 0;
+      display: block;
+      text-decoration: none;
+      text-align: center;
+      animation: pulse 2s infinite;
+    }
+
+    .tiktok-btn:hover {
+      transform: scale(1.06);
+      opacity: 0.95;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+      color: #888;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatIn {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 0, 80, 0.4); }
+      70% { box-shadow: 0 0 0 15px rgba(255, 0, 80, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 0, 80, 0); }
+    }
+
+    @media screen and (max-width: 480px) {
+      .container { padding: 1rem; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Promphuek Blog</h1>
+
+  <a class="tiktok-btn" href="https://www.tiktok.com/@promphuek?_t=ZS-8wHclqWulSD&_r=1" target="_blank">
+    ดูคอนเทนต์ของฉันบน TikTok
+  </a>
+
+  <div class="container">
+
+    <div class="section about">
+      <h2>เกี่ยวกับฉัน</h2>
+      <div class="card">
+        สวัสดีครับ ผมชื่อ <strong>Promphuek</strong>  
+        ผมหลงใหลในการถ่ายวิดีโอและเล่าเรื่องผ่านคลิปภาพเคลื่อนไหวอย่างมาก  
+        ทุกครั้งที่กดอัดคลิป มันคือช่วงเวลาที่ผมรู้สึกว่าตัวเองมีชีวิต มีความหมาย และมีพลังที่จะสร้างสรรค์สิ่งใหม่ ๆ ขึ้นมา  
+        <br><br>
+        ความฝันของผมคือการเป็น <strong>Creator มืออาชีพ</strong> ที่ไม่ใช่แค่สร้างผลงาน แต่ยังสร้างแรงบันดาลใจให้กับคนอื่น ๆ ได้ด้วย  
+        ผมเชื่อว่า "ทุกเรื่องเล่าที่จริงใจ จะเข้าถึงคนได้เสมอ"  
+        <br><br>
+        บล็อกนี้เป็นพื้นที่ที่ผมใช้ถ่ายทอดความคิด ประสบการณ์ และเบื้องหลังต่าง ๆ จากการถ่ายวิดีโอ การทดลอง การพัฒนา รวมถึงมุมมองชีวิตที่ผมได้เรียนรู้ระหว่างทาง  
+        หวังว่าทุกบทความในที่นี่จะช่วยเติมไฟให้กับใครสักคนที่กำลังเดินตามความฝันเช่นกันครับ  
+        <br><br>
+        ยินดีต้อนรับสู่โลกของ Promphuek ครับ!
+      </div>
+    </div>
+
+    <div class="section blog">
+      <h2>บทความล่าสุด</h2>
+      <div class="card">
+        <strong>มองโลกผ่านเลนส์ของความรู้สึก</strong><br>
+        เราอาจไม่ได้มีอุปกรณ์แพง แต่ถ้ารู้จักมองลึกลงไปในเรื่องเล่า ทุกคลิปก็มีพลัง...
+      </div>
+      <div class="card">
+        <strong>อยู่กับตัวเองในโลกของ Content</strong><br>
+        เมื่อโลกหมุนเร็ว เราต้องหาจังหวะของตัวเองให้เจอ และสร้างสรรค์ในแบบของเรา...
+      </div>
+    </div>
+
+    <div class="section contact">
+      <h2>ติดต่อฉัน</h2>
+      <div class="card">
+        โทรศัพท์: <a href="tel:0918715814">091-871-5814</a><br>
+        อีเมล: <a href="mailto:promphuek.pai@gmail.com">promphuek.pai@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button onclick="changeFontSize('small')">Aa-</button>
+      <button onclick="changeFontSize('normal')">Aa</button>
+      <button onclick="changeFontSize('large')">Aa+</button>
+      <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Promphuek. All rights reserved.
+  </footer>
+
+  <button id="topBtn" onclick="scrollToTop()">↑</button>
+
+  <script>
+    window.onscroll = function () {
+      document.getElementById('topBtn').style.display =
+        window.scrollY > 300 ? 'block' : 'none';
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function changeFontSize(size) {
+      const body = document.body;
+      if (size === 'small') body.style.fontSize = '14px';
+      else if (size === 'normal') body.style.fontSize = '16px';
+      else if (size === 'large') body.style.fontSize = '18px';
+    }
+
+    function toggleDarkMode() {
+      const root = document.documentElement;
+      const isDark = root.style.getPropertyValue('--main-bg') === '#1e1e1e';
+      if (isDark) {
+        root.style.setProperty('--main-bg', '#FFF9F4');
+        root.style.setProperty('--card-bg', '#FFFFFF');
+        root.style.setProperty('--text-color', '#333');
+      } else {
+        root.style.setProperty('--main-bg', '#1e1e1e');
+        root.style.setProperty('--card-bg', '#2c2c2c');
+        root.style.setProperty('--text-color', '#f0f0f0');
+      }
+    }
+  </script>
+
+</body>
+</html>
