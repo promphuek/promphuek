@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Promphuek Blog</title>
-  <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Promphuek Blog</title>
+<link href="https://fonts.googleapis.com/css2?family=Mitr&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --main-bg: #0f0f0f;
       --card-bg: #1e1e1e;
@@ -66,9 +67,20 @@
 
     .section {
       margin-bottom: 2rem;
+      scroll-margin-top: 100px;
     }
 
     .section h2 {
+  font-size: 1.6rem;
+  color: #ccefff;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 4px solid var(--accent-color);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 5px;
+  text-shadow: 0 0 4px rgba(0, 255, 255, 0.3);
+  box-shadow: inset 0 0 10px rgba(0,255,255,0.05);
+
       font-size: 1.4rem;
       color: var(--neon-blue);
       margin-bottom: 1rem;
@@ -78,6 +90,12 @@
     }
 
     .card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  backdrop-filter: blur(6px);
+  
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
       padding: 1rem;
@@ -212,8 +230,78 @@
   opacity: 0.2;
 }
 
-</style>
 
+html {
+  scroll-behavior: smooth;
+}
+
+.nav-link {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  font-weight: bold;
+}
+.nav-link:hover {
+  background: var(--accent-color);
+  color: black;
+}
+
+
+
+
+
+.main-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+.nav-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+.nav-link {
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+  white-space: nowrap;
+}
+
+</style>
+<style>
+@keyframes fadeBorder {
+  0% { box-shadow: 0 0 0px rgba(0, 255, 255, 0.05); }
+  50% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.15); }
+  100% { box-shadow: 0 0 0px rgba(0, 255, 255, 0.05); }
+}
+
+.main-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  animation: fadeBorder 4s infinite;
+  transition: box-shadow 0.3s ease;
+}
+
+.main-nav:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+</style>
 <style>
   .donate-static {
     margin-top: 4rem;
@@ -238,98 +326,162 @@
     50% { box-shadow: 0 0 20px var(--accent-color); }
     100% { box-shadow: 0 0 5px var(--accent-color); }
   }
-</style>
+<style>
+  .glow-header {
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    background: linear-gradient(90deg, #ff0050, #ffffff, #00f2ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
 
+  .glow-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    animation: shineEffect 1.5s infinite linear;
+  }
+
+  @keyframes shineEffect {
+    0% { left: -75%; }
+    100% { left: 125%; }
+  }
+</style>
 </head>
 <body>
-
-<video autoplay muted loop id="bgVideo">
-  <source src="action-bg.mp4" type="video/mp4">
+<video autoplay="" id="bgVideo" loop="" muted="">
+<source src="action-bg.mp4" type="video/mp4"/>
 </video>
-
-
-
-
-  <div class="status">● ออนไลน์</div>
-
-  <a class="tiktok-float" href="https://www.tiktok.com/@promphuek" target="_blank">TikTok ของฉัน</a>
-
-  <h1>Promphuek Blog</h1>
-
-  <div class="container">
-
-    <div class="section about">
-      <h2>เกี่ยวกับฉัน</h2>
-      <div class="card">
-        ผมชื่อ <strong>Promphuek</strong> หลงใหลในวิดีโอและการเล่าเรื่อง<br>
-        บล็อกนี้คือพื้นที่บันทึกความคิดและประสบการณ์ของผม<br>
-        หวังว่าจะช่วยจุดไฟให้ใครสักคนที่มีฝันเหมือนกัน
-      </div>
-    </div>
-
-<div class="section gear">
-  <h2>อุปกรณ์ที่ใช้</h2>
-  <div class="card">
-    - กล้อง: Sony ZV-E10<br>
-    - ไมค์: Rode Wireless GO II<br>
-    - ซอฟต์แวร์ตัดต่อ: DaVinci Resolve / CapCut<br>
-    - มือถือ: iPhone 13 Pro Max
-  </div>
+<div class="status">● ออนไลน์</div>
+<h1 class="glow-header">Promphuek Blog</h1>
+<div class="main-nav">
+<div class="nav-row">
+<a class="nav-link" href="#about">เกี่ยวกับ</a>
+<a class="nav-link" href="#gear">อุปกรณ์</a>
+<a class="nav-link" href="#inspo">แรงบันดาลใจ</a>
 </div>
-<div class="section creator-inspo">
-  <h2>แรงบันดาลใจของผม</h2>
-  <div class="card">
-    - <strong>Peter McKinnon:</strong> ทำให้ผมเห็นว่าภาพธรรมดาก็เล่าเรื่องได้<br>
-    - <strong>Yes Theory:</strong> กล้าที่จะทำสิ่งที่ไม่เคยคิดว่าจะกล้าทำ<br>
-    - <strong>Softpomz:</strong> รู้สึกว่าเขาสื่อสารกับคนดูได้จริง
-  </div>
+<div class="nav-row">
+<a class="nav-link" href="#philosophy">แนวคิด</a>
+<a class="nav-link" href="#blog">บทความ</a>
+<a class="nav-link" href="#contact">ติดต่อ</a>
 </div>
-<div class="section philosophy">
-  <h2>เบื้องหลังแนวคิด</h2>
-  <div class="card">
-    ทุกคลิปที่ผมทำเกิดจากความเชื่อว่า <strong>“เรื่องเล่าเปลี่ยนชีวิตได้”</strong><br>
-    ผมไม่ได้ถ่ายเพื่อให้สวย แต่เพื่อให้ “รู้สึก”<br>
-    ทุกวินาทีคือการตั้งคำถามว่า “สิ่งนี้จะเปลี่ยนมุมมองคนดูได้ไหม?”
-  </div>
 </div>
-    <div class="section blog">
-      <h2>บทความล่าสุด</h2>
-      <div class="card"><strong>มองโลกผ่านเลนส์ของความรู้สึก</strong><br> ทุกคลิปมีพลัง ถ้าเราใส่หัวใจลงไป</div>
-      <div class="card"><strong>อยู่กับตัวเองในโลกของ Content</strong><br> หาจังหวะของตัวเอง แล้วสร้างสิ่งที่ใช่</div>
-    </div>
+<div class="container">
+<div class="section about" id="about"><h2>เกี่ยวกับฉัน</h2>
+<div class="card">
+  สวัสดีครับ ผมชื่อ <strong>Promphuek</strong> เป็นคนที่หลงใหลในการเล่าเรื่องผ่านวิดีโออย่างจริงจัง<br/>
+  ผมเชื่อว่าภาพและเสียงสามารถสื่อสารสิ่งที่คำพูดธรรมดาอธิบายไม่ได้ และผมพยายามใช้สื่อเหล่านี้ในการเชื่อมโยงผู้คนเข้าด้วยกันผ่านความรู้สึกและประสบการณ์ร่วม<br/><br/>
 
-    <div class="section contact">
-      <h2>ติดต่อฉัน</h2>
-      <div class="card">
-        โทร: <a href="tel:0918715814">091-871-5814</a><br>
+  เว็บไซต์นี้จึงเป็นเหมือนสมุดบันทึก ที่ผมใช้แบ่งปันความคิด ความตั้งใจ และการทดลองในเส้นทางการเป็นครีเอเตอร์ ที่ยังคงเรียนรู้และพัฒนาไปเรื่อย ๆ<br/><br/>
+
+  <strong>การศึกษา:</strong> วิทยาลัยเทคโนโลยีโปลิเทคนิคลานนา จังหวัดเชียงใหม่<br/>
+  <strong>ความถนัด:</strong> การตัดต่อวิดีโอ การเขียนโปรแกรม และการสื่อสารผ่านคอนเทนต์ดิจิทัล<br/>
+  <strong>ความสนใจเพิ่มเติม:</strong> การเล่าเรื่องผ่านภาพ การสร้างอารมณ์ผ่านเสียง และการเข้าใจผู้ชมในโลกออนไลน์
+</div>
+</div><hr style="width: 60px; border: 0; border-top: 2px solid rgba(255, 255, 255, 0.1); margin: 2rem auto;"/>
+<div class="section gear" id="gear"><h2>อุปกรณ์ที่ใช้</h2>
+<div class="card">
+  อุปกรณ์ที่ผมใช้ในแต่ละคลิป ไม่ได้เป็นเพียงแค่เครื่องมือ แต่เป็นเพื่อนร่วมทางที่ช่วยให้ไอเดียของผมมีชีวิตขึ้นมา<br/><br/>
+  - <strong>กล้อง:</strong> Sony ZV-E10 – น้ำหนักเบา ใช้งานสะดวก เหมาะกับทั้งงานถ่ายแบบมืออาชีพและงาน Vlog<br/>
+  - <strong>ไมค์:</strong> Rode Wireless GO II – ให้เสียงที่ชัดเจน แม้ในสภาพแวดล้อมที่ท้าทาย<br/>
+  - <strong>โปรแกรม:</strong> DaVinci Resolve สำหรับงานหลัก และ CapCut สำหรับงานที่ต้องการความรวดเร็ว<br/>
+  - <strong>มือถือ:</strong> iPhone 13 Pro Max – กล้องมือถือที่คุณภาพไม่แพ้กล้องหลัก<br/>
+  - <strong>อุปกรณ์เสริม:</strong> ไฟ LED แบบพกพา, ขาตั้งกล้อง, gimbal กันสั่น<br/><br/>
+  ผมพยายามเลือกใช้อุปกรณ์ที่เหมาะสมกับเนื้อหาและสถานการณ์ เพื่อให้การถ่ายทำลื่นไหล และยังสามารถปรับตัวได้ในทุกสถานที่ครับ
+</div>
+</div><hr style="width: 60px; border: 0; border-top: 2px solid rgba(255, 255, 255, 0.1); margin: 2rem auto;"/>
+<div class="section creator-inspo" id="inspo"><h2>แรงบันดาลใจของผม</h2>
+<div class="card">
+  การได้เห็นผลงานของคนอื่น ทำให้ผมรู้ว่าเราไม่ได้เดินคนเดียวบนเส้นทางนี้<br/><br/>
+  - <strong>Peter McKinnon:</strong> เขาทำให้ผมเข้าใจว่าทุกเฟรมภาพมีความหมาย และการเล่าเรื่องคือศิลปะที่เข้าถึงใจคนได้<br/>
+  - <strong>Yes Theory:</strong> พวกเขาสอนให้ผมกล้าก้าวออกจาก Comfort Zone และเชื่อในพลังของการเริ่มต้น<br/>
+  - <strong>Softpomz:</strong> ความจริงใจของเขาทำให้ผมเห็นว่า “ความเป็นตัวเอง” คือสิ่งที่คนดูต้องการมากที่สุด<br/><br/>
+  แรงบันดาลใจเหล่านี้ไม่ได้แค่ผลักดันให้ผมเริ่มต้น แต่ยังเตือนให้ผมกลับมามองว่า "ทำไมเราถึงเริ่มทำสิ่งนี้ตั้งแต่แรก"
+</div>
+</div><hr style="width: 60px; border: 0; border-top: 2px solid rgba(255, 255, 255, 0.1); margin: 2rem auto;"/>
+<div class="section philosophy" id="philosophy"><h2>เบื้องหลังแนวคิด</h2>
+<div class="card">
+  ทุกครั้งที่ผมกดปุ่มบันทึกวิดีโอ ผมไม่ได้ตั้งใจเพียงแค่ถ่ายให้สวย<br/>
+  แต่ผมตั้งใจจะเล่าเรื่องบางอย่างที่ "รู้สึก" ได้จริง<br/><br/>
+  ผมเชื่อว่าในโลกที่เต็มไปด้วยคอนเทนต์ เราจะโดดเด่นได้ไม่ใช่แค่เพราะคุณภาพวิดีโอ แต่เป็นเพราะ "ความจริงใจ" ที่เราสื่อสารออกไป<br/>
+  ทุกคลิปที่ผมทำ จึงมักเริ่มจากคำถามง่าย ๆ ว่า:<br/>
+  <em>“สิ่งนี้จะทำให้คนดู ‘รู้สึก’ อะไรได้ไหม?”</em><br/><br/>
+  เพราะสุดท้ายแล้ว การเล่าเรื่องไม่ใช่แค่เรื่องของภาพและเสียง... แต่เป็นเรื่องของ "หัวใจ"
+</div>
+</div><hr style="width: 60px; border: 0; border-top: 2px solid rgba(255, 255, 255, 0.1); margin: 2rem auto;"/>
+<div class="section blog" id="blog"><h2>บทความล่าสุด</h2>
+<div class="card"><strong>มองโลกผ่านเลนส์ของความรู้สึก</strong><br/>
+  ทุกคลิปไม่จำเป็นต้องสมบูรณ์แบบ แต่ถ้าเต็มไปด้วยความรู้สึก มันก็จะสัมผัสใจผู้ชมได้
+</div>
+<div class="card"><strong>อยู่กับตัวเองในโลกของ Content</strong><br/>
+  อย่าพยายามเป็นเหมือนใคร เพราะเสียงของคุณคือสิ่งที่ทำให้คุณไม่เหมือนใคร
+</div>
+<div class="card"><strong>เบื้องหลังการตัดต่อที่ไม่มีใครเห็น</strong><br/>
+  หลายคนเห็นเพียงไม่กี่นาทีของคลิป แต่ไม่รู้เลยว่าเบื้องหลังอาจใช้เวลาหลายวันกว่าจะได้อารมณ์ที่ใช่
+</div>
+<div class="card"><strong>เมื่อกล้องหยุดถ่าย...ใจยังเล่าเรื่องอยู่</strong><br/>
+  บางเรื่องไม่ได้ถูกบันทึกไว้ในวิดีโอ แต่มันยังอยู่ในใจเสมอ และรอวันถูกถ่ายทอดออกมา
+</div>
+<hr style="width: 60px; border: 0; border-top: 2px solid rgba(255, 255, 255, 0.1); margin: 2rem auto;"/>
+<div class="section contact" id="contact">
+<h2>ติดต่อฉัน</h2>
+<div class="card">
+        โทร: <a href="tel:0918715814">091-871-5814</a><br/>
         อีเมล: <a href="mailto:promphuek.pai@gmail.com">promphuek.pai@gmail.com</a>
-      </div>
-    </div>
-
-    <div class="button-group">
-      
-    </div>
-  </div>
-
-  
-
-<div class="donate-static">
-  <h3>สนับสนุนผลงานของผมด้วย PromptPay</h3>
-  <p>ทุกการสนับสนุนคือพลังให้ผมได้สร้างวิดีโอที่มีความหมายต่อผู้คนมากยิ่งขึ้น</p>
-  <div style="margin-top: 1rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 10px; font-size: 1.2rem;">
-    PromptPay: <strong>091-871-5814</strong>
-  </div>
 </div>
-
-
-
-  <footer>
-    &copy; 2025 Promphuek. All rights reserved.
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="donate-static">
+<h3>สนับสนุนผลงานของผม</h3>
+<p>ทุกการสนับสนุนคือพลังให้ผมได้สร้างวิดีโอที่มีความหมาย</p>
+<div style="margin-top: 1rem; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px; font-size: 1.2rem;">
+<strong>PromptPay:</strong> 091-871-5814<br/>
+<img alt="QR PromptPay" src="promptpay-qr.png" style="margin-top: 1rem; width: 150px; border-radius: 10px; box-shadow: 0 0 10px var(--accent-color);"/>
+</div>
+</div>
+<div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+<a href="https://www.tiktok.com/@promphuek" style="
+    padding: 0.6rem 1.4rem;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff0050, #00f2ea);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 0 12px rgba(255,0,80,0.4);
+    transition: transform 0.3s ease;" target="_blank">
+    TikTok ของฉัน
+  </a>
+<a href="https://www.instagram.com/honey.prom?igsh=ZGYzZ2ozYnI0Ynlt&amp;utm_source=qr" style="
+    padding: 0.6rem 1.4rem;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCB045);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 0 12px rgba(255, 50, 100, 0.4);
+    transition: transform 0.3s ease;" target="_blank">
+    Instagram ของฉัน
+  </a>
+</div>
+<footer>
+    © 2025 Promphuek. All rights reserved.
   </footer>
-
-  <button id="topBtn" onclick="scrollToTop()">↑</button>
-
-  <script>
+<button id="topBtn" onclick="scrollToTop()">↑</button>
+<script>
     window.onscroll = function () {
       document.getElementById('topBtn').style.display =
         window.scrollY > 300 ? 'block' : 'none';
@@ -350,6 +502,5 @@
       popup.style.display = popup.style.display === "block" ? "none" : "block";
     }
   </script>
-
 </body>
 </html>
