@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Promphuek Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
   <style>
     :root {
-      --main-bg: #FFF9F4;
-      --card-bg: #FFFFFF;
-      --pastel-pink: #FAD4D4;
-      --pastel-blue: #AEE1F9;
-      --pastel-mint: #CFFFE5;
-      --text-color: #333;
-      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --main-bg: #0f0f0f;
+      --card-bg: #1e1e1e;
+      --text-color: #f0f0f0;
+      --accent-color: #ff0050;
+      --neon-blue: #00f2ea;
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
     }
 
     * {
@@ -23,30 +23,44 @@
     body {
       margin: 0;
       font-family: 'Mitr', sans-serif;
-      background: linear-gradient(180deg, #fffaf6, #fef3ee);
+      background: linear-gradient(180deg, #0f0f0f, #1a1a1a);
       color: var(--text-color);
+      padding: 2rem 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 2rem 1rem;
       overflow-x: hidden;
     }
 
     h1 {
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      text-align: center;
-      animation: floatIn 1s ease-in-out both;
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      text-shadow: 0 0 12px var(--accent-color), 0 0 20px #fff;
+      animation: floatIn 1.2s ease-out both;
+    }
+
+    .status {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      padding: 5px 12px;
+      background: linear-gradient(90deg, #00ff80, #00ffd5);
+      color: black;
+      font-weight: bold;
+      border-radius: 20px;
+      box-shadow: 0 0 12px #00ffcc;
+      z-index: 1000;
+      animation: pulse 2s infinite;
     }
 
     .container {
-      width: 100%;
       max-width: 768px;
+      width: 100%;
       background: var(--card-bg);
       padding: 2rem;
       border-radius: 1rem;
       box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
       animation: fadeInUp 1s ease both;
     }
 
@@ -55,33 +69,27 @@
     }
 
     .section h2 {
-      border-left: 6px solid var(--pastel-blue);
-      padding-left: 1rem;
+      font-size: 1.4rem;
+      color: var(--neon-blue);
       margin-bottom: 1rem;
-      font-size: 1.3rem;
-      text-shadow: 1px 1px 3px rgba(173, 216, 230, 0.5);
+      border-left: 4px solid var(--accent-color);
+      padding-left: 1rem;
+      text-shadow: 0 0 10px var(--neon-blue);
     }
 
     .card {
-      background: var(--pastel-pink);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       padding: 1rem;
-      border-radius: 0.75rem;
-      box-shadow: var(--shadow);
+      border-radius: 1rem;
+      box-shadow: inset 0 0 10px rgba(255,255,255,0.05);
       margin-bottom: 1rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    }
-
-    .about {
-      background: var(--pastel-mint);
-    }
-
-    .contact {
-      background: #fce8ff;
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 0 0 20px var(--accent-color);
     }
 
     .button-group {
@@ -93,60 +101,83 @@
     }
 
     button {
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--neon-blue);
       border: none;
-      border-radius: 0.5rem;
-      background: var(--pastel-blue);
-      cursor: pointer;
+      border-radius: 30px;
+      color: #000;
       font-size: 1rem;
-      box-shadow: var(--shadow);
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 15px var(--neon-blue);
     }
 
     button:hover {
-      background: #90d8f5;
-      transform: scale(1.05);
+      transform: scale(1.1);
+    }
+
+    .tiktok-float {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #ff0050, #00f2ea);
+      padding: 0.6rem 1.4rem;
+      color: white;
+      font-weight: bold;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(255,0,80,0.7);
+      text-decoration: none;
+      z-index: 1000;
+      animation: pulse 2s infinite;
+    }
+
+    .donate-popup {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(0, 0, 0, 0.95);
+      padding: 1rem 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 0 25px var(--accent-color);
+      color: white;
+      display: none;
+      z-index: 1000;
+    }
+
+    .donate-popup h3 {
+      margin-top: 0;
+      color: var(--accent-color);
+    }
+
+    .donate-popup p {
+      margin: 0.5rem 0;
+    }
+
+    .donate-popup button {
+      background: #444;
+      color: white;
+      margin-top: 0.5rem;
     }
 
     #topBtn {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #333;
+      background: var(--accent-color);
       color: white;
       border-radius: 50%;
       width: 40px;
       height: 40px;
       font-size: 1.2rem;
       display: none;
-    }
-
-    .tiktok-btn {
-      background: linear-gradient(135deg, #ff0050, #00f2ea);
-      color: white;
-      font-weight: bold;
-      padding: 0.75rem 1.5rem;
       border: none;
-      border-radius: 2rem;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-      cursor: pointer;
-      font-size: 1.1rem;
-      margin: 2rem auto 0;
-      display: block;
-      text-decoration: none;
-      text-align: center;
-      animation: pulse 2s infinite;
-    }
-
-    .tiktok-btn:hover {
-      transform: scale(1.06);
-      opacity: 0.95;
     }
 
     footer {
-      text-align: center;
-      font-size: 0.9rem;
       margin-top: 3rem;
-      color: #888;
+      font-size: 0.9rem;
+      color: #aaa;
+      text-align: center;
     }
 
     @keyframes fadeInUp {
@@ -167,53 +198,39 @@
 
     @media screen and (max-width: 480px) {
       .container { padding: 1rem; }
-      h1 { font-size: 1.5rem; }
+      h1 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
 
-  <h1>Promphuek Blog</h1>
+  <div class="status">● ออนไลน์</div>
 
-  <a class="tiktok-btn" href="https://www.tiktok.com/@promphuek?_t=ZS-8wHclqWulSD&_r=1" target="_blank">
-    ดูคอนเทนต์ของฉันบน TikTok
-  </a>
+  <a class="tiktok-float" href="https://www.tiktok.com/@promphuek" target="_blank">TikTok ของฉัน</a>
+
+  <h1>Promphuek Blog</h1>
 
   <div class="container">
 
     <div class="section about">
       <h2>เกี่ยวกับฉัน</h2>
       <div class="card">
-        สวัสดีครับ ผมชื่อ <strong>Promphuek</strong>  
-        ผมหลงใหลในการถ่ายวิดีโอและเล่าเรื่องผ่านคลิปภาพเคลื่อนไหวอย่างมาก  
-        ทุกครั้งที่กดอัดคลิป มันคือช่วงเวลาที่ผมรู้สึกว่าตัวเองมีชีวิต มีความหมาย และมีพลังที่จะสร้างสรรค์สิ่งใหม่ ๆ ขึ้นมา  
-        <br><br>
-        ความฝันของผมคือการเป็น <strong>Creator มืออาชีพ</strong> ที่ไม่ใช่แค่สร้างผลงาน แต่ยังสร้างแรงบันดาลใจให้กับคนอื่น ๆ ได้ด้วย  
-        ผมเชื่อว่า "ทุกเรื่องเล่าที่จริงใจ จะเข้าถึงคนได้เสมอ"  
-        <br><br>
-        บล็อกนี้เป็นพื้นที่ที่ผมใช้ถ่ายทอดความคิด ประสบการณ์ และเบื้องหลังต่าง ๆ จากการถ่ายวิดีโอ การทดลอง การพัฒนา รวมถึงมุมมองชีวิตที่ผมได้เรียนรู้ระหว่างทาง  
-        หวังว่าทุกบทความในที่นี่จะช่วยเติมไฟให้กับใครสักคนที่กำลังเดินตามความฝันเช่นกันครับ  
-        <br><br>
-        ยินดีต้อนรับสู่โลกของ Promphuek ครับ!
+        ผมชื่อ <strong>Promphuek</strong> หลงใหลในวิดีโอและการเล่าเรื่อง<br>
+        บล็อกนี้คือพื้นที่บันทึกความคิดและประสบการณ์ของผม<br>
+        หวังว่าจะช่วยจุดไฟให้ใครสักคนที่มีฝันเหมือนกัน
       </div>
     </div>
 
     <div class="section blog">
       <h2>บทความล่าสุด</h2>
-      <div class="card">
-        <strong>มองโลกผ่านเลนส์ของความรู้สึก</strong><br>
-        เราอาจไม่ได้มีอุปกรณ์แพง แต่ถ้ารู้จักมองลึกลงไปในเรื่องเล่า ทุกคลิปก็มีพลัง...
-      </div>
-      <div class="card">
-        <strong>อยู่กับตัวเองในโลกของ Content</strong><br>
-        เมื่อโลกหมุนเร็ว เราต้องหาจังหวะของตัวเองให้เจอ และสร้างสรรค์ในแบบของเรา...
-      </div>
+      <div class="card"><strong>มองโลกผ่านเลนส์ของความรู้สึก</strong><br> ทุกคลิปมีพลัง ถ้าเราใส่หัวใจลงไป</div>
+      <div class="card"><strong>อยู่กับตัวเองในโลกของ Content</strong><br> หาจังหวะของตัวเอง แล้วสร้างสิ่งที่ใช่</div>
     </div>
 
     <div class="section contact">
       <h2>ติดต่อฉัน</h2>
       <div class="card">
-        โทรศัพท์: <a href="tel:0918715814">091-871-5814</a><br>
+        โทร: <a href="tel:0918715814">091-871-5814</a><br>
         อีเมล: <a href="mailto:promphuek.pai@gmail.com">promphuek.pai@gmail.com</a>
       </div>
     </div>
@@ -222,8 +239,16 @@
       <button onclick="changeFontSize('small')">Aa-</button>
       <button onclick="changeFontSize('normal')">Aa</button>
       <button onclick="changeFontSize('large')">Aa+</button>
-      <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+      <button onclick="togglePopup()">สมทบทุน</button>
     </div>
+  </div>
+
+  <div class="donate-popup" id="donatePopup">
+    <h3>สนับสนุนฉัน</h3>
+    <p>PromptPay: <strong>0918715814</strong></p>
+    <img src="https://promptpay.io/0918715814.png" alt="QR" width="180" />
+    <br>
+    <button onclick="togglePopup()">ปิด</button>
   </div>
 
   <footer>
@@ -243,24 +268,14 @@
     }
 
     function changeFontSize(size) {
-      const body = document.body;
-      if (size === 'small') body.style.fontSize = '14px';
-      else if (size === 'normal') body.style.fontSize = '16px';
-      else if (size === 'large') body.style.fontSize = '18px';
+      if (size === 'small') document.body.style.fontSize = '14px';
+      else if (size === 'normal') document.body.style.fontSize = '16px';
+      else if (size === 'large') document.body.style.fontSize = '18px';
     }
 
-    function toggleDarkMode() {
-      const root = document.documentElement;
-      const isDark = root.style.getPropertyValue('--main-bg') === '#1e1e1e';
-      if (isDark) {
-        root.style.setProperty('--main-bg', '#FFF9F4');
-        root.style.setProperty('--card-bg', '#FFFFFF');
-        root.style.setProperty('--text-color', '#333');
-      } else {
-        root.style.setProperty('--main-bg', '#1e1e1e');
-        root.style.setProperty('--card-bg', '#2c2c2c');
-        root.style.setProperty('--text-color', '#f0f0f0');
-      }
+    function togglePopup() {
+      const popup = document.getElementById("donatePopup");
+      popup.style.display = popup.style.display === "block" ? "none" : "block";
     }
   </script>
 
