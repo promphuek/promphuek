@@ -200,9 +200,55 @@
       .container { padding: 1rem; }
       h1 { font-size: 2rem; }
     }
-  </style>
+  
+#bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.2;
+}
+
+</style>
+
+<style>
+  .donate-static {
+    margin-top: 4rem;
+    padding: 1.5rem;
+    text-align: center;
+    border: 2px dashed var(--accent-color);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    animation: flickerBorder 2s infinite;
+    box-shadow: 0 0 15px var(--accent-color);
+  }
+
+  .donate-static h3 {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px var(--accent-color);
+  }
+
+  @keyframes flickerBorder {
+    0% { box-shadow: 0 0 5px var(--accent-color); }
+    50% { box-shadow: 0 0 20px var(--accent-color); }
+    100% { box-shadow: 0 0 5px var(--accent-color); }
+  }
+</style>
+
 </head>
 <body>
+
+<video autoplay muted loop id="bgVideo">
+  <source src="action-bg.mp4" type="video/mp4">
+</video>
+
+
+
 
   <div class="status">● ออนไลน์</div>
 
@@ -221,6 +267,31 @@
       </div>
     </div>
 
+<div class="section gear">
+  <h2>อุปกรณ์ที่ใช้</h2>
+  <div class="card">
+    - กล้อง: Sony ZV-E10<br>
+    - ไมค์: Rode Wireless GO II<br>
+    - ซอฟต์แวร์ตัดต่อ: DaVinci Resolve / CapCut<br>
+    - มือถือ: iPhone 13 Pro Max
+  </div>
+</div>
+<div class="section creator-inspo">
+  <h2>แรงบันดาลใจของผม</h2>
+  <div class="card">
+    - <strong>Peter McKinnon:</strong> ทำให้ผมเห็นว่าภาพธรรมดาก็เล่าเรื่องได้<br>
+    - <strong>Yes Theory:</strong> กล้าที่จะทำสิ่งที่ไม่เคยคิดว่าจะกล้าทำ<br>
+    - <strong>Softpomz:</strong> รู้สึกว่าเขาสื่อสารกับคนดูได้จริง
+  </div>
+</div>
+<div class="section philosophy">
+  <h2>เบื้องหลังแนวคิด</h2>
+  <div class="card">
+    ทุกคลิปที่ผมทำเกิดจากความเชื่อว่า <strong>“เรื่องเล่าเปลี่ยนชีวิตได้”</strong><br>
+    ผมไม่ได้ถ่ายเพื่อให้สวย แต่เพื่อให้ “รู้สึก”<br>
+    ทุกวินาทีคือการตั้งคำถามว่า “สิ่งนี้จะเปลี่ยนมุมมองคนดูได้ไหม?”
+  </div>
+</div>
     <div class="section blog">
       <h2>บทความล่าสุด</h2>
       <div class="card"><strong>มองโลกผ่านเลนส์ของความรู้สึก</strong><br> ทุกคลิปมีพลัง ถ้าเราใส่หัวใจลงไป</div>
@@ -236,20 +307,21 @@
     </div>
 
     <div class="button-group">
-      <button onclick="changeFontSize('small')">Aa-</button>
-      <button onclick="changeFontSize('normal')">Aa</button>
-      <button onclick="changeFontSize('large')">Aa+</button>
-      <button onclick="togglePopup()">สมทบทุน</button>
+      
     </div>
   </div>
 
-  <div class="donate-popup" id="donatePopup">
-    <h3>สนับสนุนฉัน</h3>
-    <p>PromptPay: <strong>0918715814</strong></p>
-    <img src="https://promptpay.io/0918715814.png" alt="QR" width="180" />
-    <br>
-    <button onclick="togglePopup()">ปิด</button>
+  
+
+<div class="donate-static">
+  <h3>สนับสนุนผลงานของผมด้วย PromptPay</h3>
+  <p>ทุกการสนับสนุนคือพลังให้ผมได้สร้างวิดีโอที่มีความหมายต่อผู้คนมากยิ่งขึ้น</p>
+  <div style="margin-top: 1rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 10px; font-size: 1.2rem;">
+    PromptPay: <strong>091-871-5814</strong>
   </div>
+</div>
+
+
 
   <footer>
     &copy; 2025 Promphuek. All rights reserved.
